@@ -1,0 +1,1 @@
+export interface RoomItem { id: number; name: string };
