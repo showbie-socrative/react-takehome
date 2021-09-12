@@ -10,8 +10,8 @@ import {
 export interface StoreState {
   isStudentsLoading: boolean;
   isRoomsLoading: boolean;
-  listStudent: any;
-  listRoom: any;
+  listStudent: IStudent[];
+  listRoom: IRoom[];
   currentRoomId: number;
 }
 
@@ -30,7 +30,7 @@ interface RequestListStudentAction {
 
 interface ReceiveListStudentAction {
   type: 'RECEIVE_LIST_STUDENT_DATA';
-  listStudent: any;
+  listStudent: IStudent[];
   currentRoomId: number
 }
 
@@ -40,7 +40,7 @@ interface RequestListRoomAction {
 
 interface ReceiveListRoomAction {
   type: 'RECEIVE_LIST_ROOM_DATA';
-  listRoom: any;
+  listRoom: IRoom[];
 }
 
 type KnownAction =
@@ -54,8 +54,10 @@ export const actionCreators = {
     if (appState && appState.Store && !appState.Store.isRoomsLoading) {
       dispatch({ type: 'REQUEST_LIST_ROOM_DATA' });
 
-      let rooms: any = fetchRooms();
-      dispatch({ type: 'RECEIVE_LIST_ROOM_DATA', listRoom: rooms });
+      let rooms: any = fetchRooms().then((res: IRoom[]) => {
+        dispatch({ type: 'RECEIVE_LIST_ROOM_DATA', listRoom: res });
+
+      });
 
     }
   },
@@ -65,8 +67,9 @@ export const actionCreators = {
       dispatch({ type: 'REQUEST_LIST_STUDENT_DATA' });
 
       // can't make my type -.-
-      let students: any = fetchStudents(roomID);
-      dispatch({ type: 'RECEIVE_LIST_STUDENT_DATA', listStudent: students, currentRoomId: roomID });
+      fetchStudents(roomID).then((res: IStudent[]) => {
+        dispatch({ type: 'RECEIVE_LIST_STUDENT_DATA', listStudent: res, currentRoomId: roomID });
+      });
     }
   },
 };

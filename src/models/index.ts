@@ -12,6 +12,7 @@ import {
   Field,
   FieldProps,
   Button,
+  FieldState,
 } from './FormProps';
 
 import {
@@ -45,3 +46,5 @@ export type IRoom = Room;
 export type IStudent = Student;
 
 export type IValues = Values;
+
+export type IFieldState = FieldState;

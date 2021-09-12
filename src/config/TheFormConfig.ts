@@ -10,7 +10,7 @@ export const TheFormConfig: IFormConfig = Object.freeze({
     {
       id: "studentId",
       label: "student id",
-    }
+    },
     {
       id: "name",
       label: "Student Name"

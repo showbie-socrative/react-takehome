@@ -15,15 +15,16 @@ export interface FormConfig {
 }
 
 
-export interface FormContextProps {
-  setValues: (values: IValues) => void,
-  validate: (fieldName: string) => void,
-}
 
 export interface FormState {
   values: IValues,
   errors: Errors,
   submitSuccess?: boolean | undefined,
+}
+
+export interface FormContextProps extends FormState {
+  setValues: (values: IValues) => void,
+  validate: (fieldName: string) => void,
 }
 
 export interface Errors {
@@ -35,6 +36,10 @@ export interface Field {
   label?: string,
   type?: string,
   validation?: string,
+}
+
+export interface FieldState {
+  value: any,
 }
 
 export interface FieldProps extends Field {

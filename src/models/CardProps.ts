@@ -10,6 +10,7 @@ export interface FormCard extends Card {
 }
 
 export interface TableCard extends Card {
-  content: any[][],
+  content: any[],
   columns: string[],
+  onClick?: (val: IValues) => void,
 }

@@ -1,14 +1,13 @@
 import * as React from 'react';
 import {
-  IErrors,
-  // IFieldOption,
-  IFieldProps,
+  IField,
   IFormContext,
+  IFieldProps,
 } from 'models';
-import { Field } from 'components';
-import { FormContext } from '../form';
+import { FormContext } from './FormContext';
+import { Field} from 'components';
 
-class FormField extends React.PureComponent<IFieldProps, IFormFieldState> {
+class FormField extends React.PureComponent<IField> {
 
   render() {
     let id = this.props.id,
@@ -20,6 +19,7 @@ class FormField extends React.PureComponent<IFieldProps, IFormFieldState> {
 
         // OnChange Callback
         let onChange = (val: string | number) => {
+          console.log(id)
           if (context && context.setValues) {
             context.setValues({ [id]: val });
           }
@@ -32,21 +32,14 @@ class FormField extends React.PureComponent<IFieldProps, IFormFieldState> {
           this.props,
           {
             value: formValue,
+            onChange: onChange
           }
         )
 
         return (
           <div className="form-group">
             {this.props.label}
-            <input
-              id={this.props.id}
-              value={value}
-              onChange={(e: React.FormEvent<HTMLInputElement>) => {
-                let value = e.currentTarget.value;
-                this.onChange(value)
-              }}
-              onBlur={() => {}}
-               />
+            <Field {...fieldProps} />
           </div>
         )
       }}</FormContext.Consumer>

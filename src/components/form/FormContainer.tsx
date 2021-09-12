@@ -16,7 +16,7 @@ class FormContainer extends React.PureComponent<IFormProps, IFormState> {
   }
 
   setValues = (values: IValues) => {
-    this.setState({ values: values });
+    this.setState({ values: { ...this.state.values, ...values } });
   };
 
   validateField = (fieldName: string): string => {
@@ -27,17 +27,17 @@ class FormContainer extends React.PureComponent<IFormProps, IFormState> {
     e.preventDefault();
 
     const submitSuccess: boolean = await this.submitFormValues();
-    this.setState({ submitSuccess: submitSuccess })
+    this.setState({ submitSuccess: submitSuccess, values: {} })
   }
 
   submitFormValues = async (): Promise<boolean> => {
+    console.log(this.state.values)
     return formPost(this.props.config.action, this.state.values)
       .then((res: any) => {
         return true
       }).catch((error: any) => {
         return false
       })
-
   }
 
   render() {

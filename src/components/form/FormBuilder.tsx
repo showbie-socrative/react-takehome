@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { IFormProps } from 'models';
+import { IFormProps, IField } from 'models';
+import { FormContainer, FormField } from 'components';
 
 
 class FormBuilder extends React.PureComponent<IFormProps> {
@@ -9,13 +10,12 @@ class FormBuilder extends React.PureComponent<IFormProps> {
       <FormContainer config={this.props.config}>
         {this.props.config.fields.map((field: IField, key) => {
           return (
-            <FormField key={key} {...fieldProps} />
+            <FormField key={key} {...field} />
           )
         })}
 
         <button
-          type="submit"
-          >
+          type="submit">
           submit
         </button>
 
@@ -24,4 +24,4 @@ class FormBuilder extends React.PureComponent<IFormProps> {
   }
 }
 
-export default FormBody;
+export default FormBuilder;
