@@ -16,7 +16,7 @@ const fakeStudents = {
         {
             id: 234,
             name: 'Sean R'
-        }, 
+        },
         {
             id: 235,
             name: 'Shaun S'
@@ -24,11 +24,11 @@ const fakeStudents = {
         {
             id: 411,
             name: 'Robin P'
-        },      
+        },
         {
             id: 412,
             name: 'Henry T'
-        }, 
+        },
         {
             id: 413,
             name: 'Jeff N'
@@ -48,7 +48,7 @@ const fakeStudents = {
             id: 222,
             name: 'Cam W'
         }
-    ], 
+    ],
     '412': [
         {
             id: 235,
@@ -57,11 +57,11 @@ const fakeStudents = {
         {
             id: 411,
             name: 'Robin P'
-        },      
+        },
         {
             id: 412,
             name: 'Henry T'
-        }, 
+        },
         {
             id: 413,
             name: 'Jeff N'
@@ -73,7 +73,7 @@ const fakeStudents = {
         {
             id: 555,
             name: 'Nadine F'
-        }  
+        }
     ]
 };
 
