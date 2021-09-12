@@ -33,7 +33,7 @@ export type ITableCard = TableCard;
 
 export type IFormProps = FormProps;
 export type IFormConfig = FormConfig;
-export type IFormContextProps = FormContextProps;
+export type IFormContext = FormContextProps;
 export type IFormState = FormState;
 export type IErrors = Errors;
 export type IField = Field;

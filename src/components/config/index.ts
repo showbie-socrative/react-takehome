@@ -1,0 +1,1 @@
+export { TheFormConfig } from './TheFormConfig';
