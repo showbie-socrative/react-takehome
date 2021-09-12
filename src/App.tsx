@@ -1,10 +1,6 @@
 import * as React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Room } from './components/Room';
-import { RoomItem } from './types';
-import { useEffect, useState } from 'react';
-import { fetchRooms } from 'api';
 
 import { MainView } from 'views';
 

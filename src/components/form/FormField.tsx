@@ -19,13 +19,10 @@ class FormField extends React.PureComponent<IField> {
 
         // OnChange Callback
         let onChange = (val: string | number) => {
-          console.log(id)
           if (context && context.setValues) {
             context.setValues({ [id]: val });
           }
         }
-        // OnBlur Callback
-        let onBlur = () => {}
 
         let fieldProps: IFieldProps = Object.assign(
           {},

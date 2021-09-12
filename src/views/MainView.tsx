@@ -5,9 +5,6 @@ import {
   FormCard,
 } from 'components';
 import { IRoom, IValues, IStudent } from 'models';
-import {
-  IFormConfig,
-} from 'models';
 import { TheFormConfig } from 'config';
 import * as Store from 'store/Store';
 import { ApplicationState, StoreProps } from 'store';

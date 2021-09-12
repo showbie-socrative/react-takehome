@@ -5,7 +5,6 @@ import { IFormProps,
   IFormState,
   IFormContext,
   IValues,
-  IErrors,
  } from 'models';
 
 class FormContainer extends React.PureComponent<IFormProps, IFormState> {

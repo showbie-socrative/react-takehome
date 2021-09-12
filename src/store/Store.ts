@@ -54,7 +54,7 @@ export const actionCreators = {
     if (appState && appState.Store && !appState.Store.isRoomsLoading) {
       dispatch({ type: 'REQUEST_LIST_ROOM_DATA' });
 
-      let rooms: any = fetchRooms().then((res: IRoom[]) => {
+      fetchRooms().then((res: IRoom[]) => {
         dispatch({ type: 'RECEIVE_LIST_ROOM_DATA', listRoom: res });
 
       });

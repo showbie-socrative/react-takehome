@@ -10,19 +10,22 @@ class Template extends React.PureComponent<ITableCard> {
       val: IValues,
       onClick: () => void;
 
-    if (!rows || rows.length == 0) {
+    if (!rows || rows.length === 0) {
       return (<div> no students in room </div>);
     }
 
     return (
       <div className="card">
         <table>
+          <thead>
           <tr>
-            {columns.map((header: string) => {
-              return (<td>{header}</td>)
+            {columns.map((header: string, hKey: number) => {
+              return (<td key={hKey}>{header}</td>)
             })}
           </tr>
+          </thead>
 
+          <tbody>
           {rows.map((row: any) => {
             val = row;
             onClick = () => {
@@ -33,12 +36,13 @@ class Template extends React.PureComponent<ITableCard> {
 
             return (
               <tr onClick={onClick}>
-                {columns.map((col: string) => {
-                  return (<td>{val[col]}</td>)
+                {columns.map((col: string, colKey: number) => {
+                  return (<td key={colKey}>{val[col]}</td>)
                 })}
               </tr>
             )
           })}
+          </tbody>
         </table>
       </div>
     );
