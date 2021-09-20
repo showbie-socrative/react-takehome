@@ -94,7 +94,6 @@ export const handlers = [
           )
     }),
     rest.post('/rooms/:id/students', (req, res, ctx) => {
-        const roomId = req.params.id;
         const name = req.body.name;
 
         if (!name) {
